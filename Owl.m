@@ -56,24 +56,6 @@ OwlEncryption * encryption;
     }
 }
 
-+(void) putUnsafeWithKey :(NSString *)key andValue:(id) value{
-    [self checkSuperClass :[value class]];
-    NSData * data = [encryption encrypt:[value toJSONString] withPassword:cryptoKey];
-    [storage putWithKey:key value:data];
-}
-
-+(id) getUnsafeWithKey :(NSString *)key andClass:(Class) class{
-    [self checkSuperClass :class];
-    id obj = [class alloc];
-    NSString * json = [encryption decryptData:[storage getWithKey:key] withPassword:cryptoKey];
-    NSError * error = nil;
-    obj = [obj initWithString:json error:&error];
-    if(error){
-        NSLog(@"%@",[error description]);
-    }
-    return obj;
-}
-
 +(void) setPassword :(NSString *) password{
     unsigned long len = [password length];
     if(len != 16 && len != 24 && len !=32){
