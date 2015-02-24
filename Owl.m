@@ -8,62 +8,67 @@
 
 #import "Owl.h"
 #import "OwlStorage.h"
-
+#import "JSONModel.h"
+#import "OwlModel.h"
+#import <objc/runtime.h>
 @implementation Owl
 
 NSString * cryptoKey;
-OwlStorage * storage ;
+OwlStorage * storage;
 
-+ (id)sharedInstance {
-    static Owl *instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-    });
-    return instance;
-}
+#pragma mark - initialization methods
 
-- (instancetype)init
++(void)load
 {
-    self = [super init];
-    if (self) {
-        cryptoKey = @"cOg5c000t6HjnH30";
-        storage = [[OwlStorage alloc] init];
-    }
-    return self;
-}
-
-- (instancetype)initWithCryptoKey: (NSString*) key{
-    self = [super init];
-    if (self) {
-        cryptoKey = key;
-        storage = [[OwlStorage alloc] init];
-    }
-    return self;
-}
-
--(void) putWithKey :(NSString *) key andValue:(id) value{
-//    
-    NSArray * toSave = [NSArray arrayWithObject:value];
-    if([NSJSONSerialization isValidJSONObject:[toSave ]]){
-        NSError *error = nil;
-        NSData * data = [NSJSONSerialization dataWithJSONObject:toSave options:NSJSONWritingPrettyPrinted error:&error];
-        if(error){
-            NSLog(@"%@",[error description]);
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        @autoreleasepool {
+            storage = [[OwlStorage alloc] init];
         }
-        [storage putWithKey:key value:data];
-    NSData * dataToSave = [NSKeyedArchiver archivedDataWithRootObject:value];
-    [storage putWithKey:key value:dataToSave];
-    }else{
-        NSLog(@"This object cannot be converted to JSON!");
+    });
+}
+
+
++(void) putWithKey :(NSString *) key andValue:(id) value{
+    NSString * json = [value toJSONString];
+    [storage putWithKey:key value:json];
+}
+
++(id) getWithKey :(NSString *) key andClass:(Class) class{
+    id obj = [class alloc];
+    NSString * json = [storage getWithKey:key];
+    NSError * error = nil;
+    obj = [obj initWithString:json error:&error];
+    if(error){
+        NSLog(@"%@",[error description]);
+    }
+    return obj;
+}
+
++(void) checkSuperClass :(Class) class{
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if(![class isSubclassOfClass:[OwlModel class]]){
+        class_setSuperclass(class, [OwlModel class]);
     }
 }
 
--(id) getWithKey :(NSString *) key{
-    NSData * data = [storage getWithKey:key];
-    NSError * error;
-    id ret = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-//    id ret = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    return ret[0];
++(void) putUnsafeWithKey :(NSString *)key andValue:(id) value{
+    [self checkSuperClass :[value class]];
+    NSString * json = [value toJSONString];
+    [storage putWithKey:key value:json];
 }
+
++(id) getUnsafeWithKey :(NSString *)key andClass:(Class) class{
+    [self checkSuperClass :class];
+    id obj = [class alloc];
+    NSString * json = [storage getWithKey:key];
+    NSError * error = nil;
+    obj = [obj initWithString:json error:&error];
+    if(error){
+        NSLog(@"%@",[error description]);
+    }
+    return obj;
+    
+}
+
 @end

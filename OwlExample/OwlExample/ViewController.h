@@ -12,7 +12,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *toSaveTextField;
 @property (weak, nonatomic) IBOutlet UIButton *saveBt;
 @property (weak, nonatomic) IBOutlet UIButton *loadBt;
+@property (weak, nonatomic) IBOutlet UIButton *saveBt2;
+@property (weak, nonatomic) IBOutlet UIButton *loadBt2;
 @property (weak, nonatomic) IBOutlet UITextField *toLoadTextField;
+@property (weak, nonatomic) IBOutlet UITextField *toSaveSafeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *toLoadSafeTextField;
 
 
 @end

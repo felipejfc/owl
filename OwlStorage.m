@@ -13,7 +13,6 @@
 - (void) putWithKey :(NSString*) key value:(id)value{
     [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
 }
-
 - (id) getWithKey:(NSString *) key{
     return [[NSUserDefaults standardUserDefaults] valueForKey:key];
 }

@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OwlModel.h"
 
 @interface Owl : NSObject
-+ (id)sharedInstance;
--(void) putWithKey :(NSString *) key andValue:(id) value;
--(id) getWithKey :(NSString *) key;
+
++(void) putWithKey :(NSString *) key andValue:(id) value;
++(id) getWithKey :(NSString *) key andClass:(Class) class;
++(void) putUnsafeWithKey :(NSString *)key andValue:(id) value;
++(id) getUnsafeWithKey :(NSString *)key andClass:(Class) class;
 
 @end

@@ -1,5 +1,7 @@
 PODS:
-  - Owl (1.0)
+  - JSONModel (1.0.2)
+  - Owl (1.0):
+    - JSONModel
 
 DEPENDENCIES:
   - Owl (from `../`)
@@ -9,6 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Owl: 73b7e3d6b855f860dd517375dbabf63a0364a0b2
+  JSONModel: cbdef0fdff1cc70e913a860861d3072860efd3a1
+  Owl: a8a496502d97053db199c71829c4c9c116b6b21e
 
 COCOAPODS: 0.35.0

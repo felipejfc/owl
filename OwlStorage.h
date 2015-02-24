@@ -11,7 +11,6 @@
 @interface OwlStorage : NSObject
 
 - (void) putWithKey :(NSString*) key value:(id)value;
-
 - (id) getWithKey:(NSString *) key;
 
 @end
