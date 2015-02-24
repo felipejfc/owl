@@ -15,5 +15,6 @@
 +(id) getWithKey :(NSString *) key andClass:(Class) class;
 +(void) putUnsafeWithKey :(NSString *)key andValue:(id) value;
 +(id) getUnsafeWithKey :(NSString *)key andClass:(Class) class;
++(void) setPassword :(NSString *) password;
 
 @end

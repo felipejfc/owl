@@ -16,39 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data to be saved" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2RI-p9-vLA">
-                                <rect key="frame" x="16" y="14" width="169" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loaded data" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXd-b4-eKu">
-                                <rect key="frame" x="20" y="206" width="169" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cur-z2-eza">
-                                <rect key="frame" x="44" y="168" width="112" height="30"/>
-                                <state key="normal" title="Load Unsafe">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loadUnsafe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kyh-Yo-WFE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0N-gh-ZaX">
-                                <rect key="frame" x="20" y="47" width="161" height="30"/>
-                                <state key="normal" title="Save Unsafe">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveUnsafe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k8s-j6-AbP"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loaded data" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-iI-yYi">
-                                <rect key="frame" x="238" y="206" width="248" height="30"/>
+                                <rect key="frame" x="176" y="287" width="248" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -56,34 +25,34 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKr-sE-mob">
-                                <rect key="frame" x="306" y="168" width="112" height="30"/>
+                                <rect key="frame" x="244" y="249" width="112" height="30"/>
                                 <state key="normal" title="Load">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loadSafe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ptj-gg-myD"/>
+                                    <action selector="load:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxh-WR-ZdD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQd-BA-43T">
-                                <rect key="frame" x="282" y="47" width="161" height="30"/>
+                                <rect key="frame" x="220" y="226" width="161" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveSafe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="meV-dm-AkM"/>
+                                    <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xxa-hD-e6b"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data to persist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IkR-HW-jdH">
+                                <rect key="frame" x="218" y="151" width="165" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="loadBt" destination="Cur-z2-eza" id="xAD-bd-OBH"/>
-                        <outlet property="loadBt2" destination="YKr-sE-mob" id="WIv-nZ-YLL"/>
-                        <outlet property="saveBt" destination="u0N-gh-ZaX" id="ycA-lD-aqe"/>
-                        <outlet property="saveBt2" destination="OQd-BA-43T" id="3iR-2K-dNg"/>
                         <outlet property="toLoadSafeTextField" destination="E1e-iI-yYi" id="Ah7-va-3jn"/>
-                        <outlet property="toLoadTextField" destination="jXd-b4-eKu" id="xOD-zo-9d2"/>
-                        <outlet property="toSaveTextField" destination="2RI-p9-vLA" id="xH5-qP-nDd"/>
+                        <outlet property="toSaveField" destination="IkR-HW-jdH" id="b8H-RA-eSt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

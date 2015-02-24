@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
 #import "OwlModel.h"
 #import "TestModel2.h"
 
-@interface TestModel : NSObject
-@property(nonatomic, strong) NSString *idStr;
-@property(nonatomic) BOOL protected;
-@property(nonatomic, strong) NSNumber *followersCount;
+@interface TestModel : OwlModel
+@property(nonatomic, strong) NSString *aSrt;
+@property(nonatomic, strong) TestModel2 *model;
+@property(nonatomic) int num;
 
 @end

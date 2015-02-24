@@ -6,13 +6,10 @@
 //  Copyright (c) 2015 felipejfc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "OwlModel.h"
-#import "TestModel3.h"
 
 @interface TestModel2 : OwlModel
-@property(nonatomic, strong) NSString *aSrt;
-@property(nonatomic, strong) TestModel3 *model;
-@property(nonatomic) int num;
+@property(nonatomic) float numFloat;
+@property(nonatomic) BOOL testBool;
 
 @end

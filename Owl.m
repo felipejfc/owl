@@ -10,11 +10,14 @@
 #import "OwlStorage.h"
 #import "JSONModel.h"
 #import "OwlModel.h"
+#import "OwlEncryption.h"
 #import <objc/runtime.h>
+
 @implementation Owl
 
 NSString * cryptoKey;
 OwlStorage * storage;
+OwlEncryption * encryption;
 
 #pragma mark - initialization methods
 
@@ -24,19 +27,20 @@ OwlStorage * storage;
     dispatch_once(&once, ^{
         @autoreleasepool {
             storage = [[OwlStorage alloc] init];
+            encryption = [[OwlEncryption alloc] init];
+            cryptoKey = @"2c)2zW!YS:i9(zlq";
         }
     });
 }
 
-
 +(void) putWithKey :(NSString *) key andValue:(id) value{
-    NSString * json = [value toJSONString];
-    [storage putWithKey:key value:json];
+    NSData * data = [encryption encrypt:[value toJSONString] withPassword:cryptoKey];
+    [storage putWithKey:key value:data];
 }
 
 +(id) getWithKey :(NSString *) key andClass:(Class) class{
     id obj = [class alloc];
-    NSString * json = [storage getWithKey:key];
+    NSString * json = [encryption decryptData:[storage getWithKey:key] withPassword:cryptoKey];
     NSError * error = nil;
     obj = [obj initWithString:json error:&error];
     if(error){
@@ -54,21 +58,29 @@ OwlStorage * storage;
 
 +(void) putUnsafeWithKey :(NSString *)key andValue:(id) value{
     [self checkSuperClass :[value class]];
-    NSString * json = [value toJSONString];
-    [storage putWithKey:key value:json];
+    NSData * data = [encryption encrypt:[value toJSONString] withPassword:cryptoKey];
+    [storage putWithKey:key value:data];
 }
 
 +(id) getUnsafeWithKey :(NSString *)key andClass:(Class) class{
     [self checkSuperClass :class];
     id obj = [class alloc];
-    NSString * json = [storage getWithKey:key];
+    NSString * json = [encryption decryptData:[storage getWithKey:key] withPassword:cryptoKey];
     NSError * error = nil;
     obj = [obj initWithString:json error:&error];
     if(error){
         NSLog(@"%@",[error description]);
     }
     return obj;
-    
+}
+
++(void) setPassword :(NSString *) password{
+    unsigned long len = [password length];
+    if(len != 16 && len != 24 && len !=32){
+        NSLog(@"Owl: Password must have 16, 24 or 32 characters");
+        return;
+    }
+    cryptoKey = password;
 }
 
 @end

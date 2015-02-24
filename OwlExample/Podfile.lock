@@ -2,6 +2,8 @@ PODS:
   - JSONModel (1.0.2)
   - Owl (1.0):
     - JSONModel
+    - RNCryptor
+  - RNCryptor (2.2)
 
 DEPENDENCIES:
   - Owl (from `../`)
@@ -12,6 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JSONModel: cbdef0fdff1cc70e913a860861d3072860efd3a1
-  Owl: a8a496502d97053db199c71829c4c9c116b6b21e
+  Owl: 36787b10833b4bd5b4cad7d5a200864f4b08bedc
+  RNCryptor: 4f562062c39f288b99601674f2c50dd44b68d58a
 
 COCOAPODS: 0.35.0

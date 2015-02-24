@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.source_files = "*.{h,m,c}"
   s.dependency 'JSONModel'
+  s.dependency 'RNCryptor'
 end

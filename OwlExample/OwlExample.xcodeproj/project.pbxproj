@@ -14,9 +14,8 @@
 		73BEDDE51A9C28B7004D3B9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BEDDE41A9C28B7004D3B9F /* Images.xcassets */; };
 		73BEDDE81A9C28B7004D3B9F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BEDDE61A9C28B7004D3B9F /* LaunchScreen.xib */; };
 		73BEDDF41A9C28B7004D3B9F /* OwlExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDDF31A9C28B7004D3B9F /* OwlExampleTests.m */; };
-		73BEDE051A9C3E4F004D3B9F /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE041A9C3E4F004D3B9F /* TestModel.m */; };
-		73BEDE0B1A9CBF6F004D3B9F /* TestModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE0A1A9CBF6F004D3B9F /* TestModel2.m */; };
-		73BEDE0E1A9CCBF4004D3B9F /* TestModel3.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE0D1A9CCBF4004D3B9F /* TestModel3.m */; };
+		73BEDE0E1A9CCBF4004D3B9F /* TestModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE0D1A9CCBF4004D3B9F /* TestModel2.m */; };
+		73BEDE141A9D0364004D3B9F /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE131A9D0364004D3B9F /* TestModel.m */; };
 		EEB273E2B4C8F06FA68A7000 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5EC69003EDA190A83972DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -46,11 +45,9 @@
 		73BEDDF21A9C28B7004D3B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BEDDF31A9C28B7004D3B9F /* OwlExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwlExampleTests.m; sourceTree = "<group>"; };
 		73BEDE031A9C3E4F004D3B9F /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
-		73BEDE041A9C3E4F004D3B9F /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
-		73BEDE091A9CBF6F004D3B9F /* TestModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel2.h; sourceTree = "<group>"; };
-		73BEDE0A1A9CBF6F004D3B9F /* TestModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel2.m; sourceTree = "<group>"; };
-		73BEDE0C1A9CCBF4004D3B9F /* TestModel3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel3.h; sourceTree = "<group>"; };
-		73BEDE0D1A9CCBF4004D3B9F /* TestModel3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel3.m; sourceTree = "<group>"; };
+		73BEDE0C1A9CCBF4004D3B9F /* TestModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel2.h; sourceTree = "<group>"; };
+		73BEDE0D1A9CCBF4004D3B9F /* TestModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel2.m; sourceTree = "<group>"; };
+		73BEDE131A9D0364004D3B9F /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		D11AD01850FEAF827DFCC3E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EC5EC69003EDA190A83972DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,11 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				73BEDE031A9C3E4F004D3B9F /* TestModel.h */,
-				73BEDE041A9C3E4F004D3B9F /* TestModel.m */,
-				73BEDE091A9CBF6F004D3B9F /* TestModel2.h */,
-				73BEDE0A1A9CBF6F004D3B9F /* TestModel2.m */,
-				73BEDE0C1A9CCBF4004D3B9F /* TestModel3.h */,
-				73BEDE0D1A9CCBF4004D3B9F /* TestModel3.m */,
+				73BEDE131A9D0364004D3B9F /* TestModel.m */,
+				73BEDE0C1A9CCBF4004D3B9F /* TestModel2.h */,
+				73BEDE0D1A9CCBF4004D3B9F /* TestModel2.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -304,9 +299,8 @@
 				73BEDDE01A9C28B7004D3B9F /* ViewController.m in Sources */,
 				73BEDDDD1A9C28B7004D3B9F /* AppDelegate.m in Sources */,
 				73BEDDDA1A9C28B7004D3B9F /* main.m in Sources */,
-				73BEDE0E1A9CCBF4004D3B9F /* TestModel3.m in Sources */,
-				73BEDE0B1A9CBF6F004D3B9F /* TestModel2.m in Sources */,
-				73BEDE051A9C3E4F004D3B9F /* TestModel.m in Sources */,
+				73BEDE141A9D0364004D3B9F /* TestModel.m in Sources */,
+				73BEDE0E1A9CCBF4004D3B9F /* TestModel2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +381,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -420,9 +415,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
