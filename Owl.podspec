@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = "*.{h,m,c}"
   s.dependency 'JSONModel'
   s.dependency 'RNCryptor'
+  s.homepage = "https://github.com/felipejfc/owl"
 end
