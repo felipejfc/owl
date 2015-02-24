@@ -99,6 +99,7 @@ TestModel2.h
 ```
 
 ####ToDo
+* Tests
 * Support for arrays
 * Extend compatibility
 
