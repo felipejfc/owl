@@ -1,7 +1,7 @@
 #Owl
 Secure, simple key-value storage for iOS
 
-<img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='128' height='140'/>
+<img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='190' height='128'/>
 
 Owl uses:
 - AES for the crypto
@@ -68,9 +68,12 @@ Owl can persist the following objects, NSString, NSNumber, NSArray, NSDictionary
 * The classes of its properties must be either:
 ```
 non-primitives
-[NSString class], [NSNumber class], [NSDecimalNumber class], [NSArray class], [NSDictionary class], [NSNull class], [NSMutableString class], [NSMutableArray class], [NSMutableDictionary class]
+[NSString class], [NSNumber class], [NSDecimalNumber class], [NSArray class],
+[NSDictionary class], [NSNull class], [NSMutableString class],
+[NSMutableArray class], [NSMutableDictionary class]
 primitives
-@"BOOL", @"float", @"int", @"long", @"double", @"short",@"NSInteger", @"NSUInteger",@"Block"
+@"BOOL", @"float", @"int", @"long", @"double", @"short",
+@"NSInteger", @"NSUInteger",@"Block"
 ```
 *It can also contain another object that also subclass OwlModel and respect all the constraints, for example: <br>
 TestModel.h
