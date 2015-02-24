@@ -1,0 +1,14 @@
+PODS:
+  - Owl (1.0)
+
+DEPENDENCIES:
+  - Owl (from `../`)
+
+EXTERNAL SOURCES:
+  Owl:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Owl: 73b7e3d6b855f860dd517375dbabf63a0364a0b2
+
+COCOAPODS: 0.35.0
