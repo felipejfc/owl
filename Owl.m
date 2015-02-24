@@ -81,6 +81,14 @@ OwlEncryption * owlCrypto;
     }
 }
 
++(void) removeWithKey :(NSString *) key{
+    [owlStorage removeWithKey:key];
+}
+
++(bool) containsKey :(NSString *) key{
+    return [owlStorage containsKey:key];
+}
+
 +(void) setPassword :(NSString *) password{
     unsigned long len = [password length];
     if(len != 16 && len != 24 && len !=32){

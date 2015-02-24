@@ -12,5 +12,7 @@
 
 - (void) putWithKey :(NSString*) key value:(id)value;
 - (id) getWithKey:(NSString *) key;
+- (void) removeWithKey :(NSString *) key;
+- (BOOL) containsKey :(NSString *) key;
 
 @end

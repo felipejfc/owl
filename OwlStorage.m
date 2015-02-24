@@ -17,4 +17,12 @@
     return [[NSUserDefaults standardUserDefaults] valueForKey:key];
 }
 
+- (void) removeWithKey :(NSString *) key{
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
+}
+
+- (BOOL) containsKey :(NSString *) key{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:key] != nil;
+}
+
 @end
