@@ -16,8 +16,8 @@
 @implementation Owl
 
 NSString * cryptoKey;
-OwlStorage * storage;
-OwlEncryption * encryption;
+OwlStorage * owlStorage;
+OwlEncryption * owlCrypto;
 
 #pragma mark - initialization methods
 
@@ -26,21 +26,46 @@ OwlEncryption * encryption;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         @autoreleasepool {
-            storage = [[OwlStorage alloc] init];
-            encryption = [[OwlEncryption alloc] init];
+            owlStorage = [[OwlStorage alloc] init];
+            owlCrypto = [[OwlEncryption alloc] init];
             cryptoKey = @"2c)2zW!YS:i9(zlq";
         }
     });
 }
-
+//TODO put and get JSONSerializables
 +(void) putWithKey :(NSString *) key andValue:(id) value{
-    NSData * data = [encryption encrypt:[value toJSONString] withPassword:cryptoKey];
-    [storage putWithKey:key value:data];
+    if(![[value class] isSubclassOfClass:[OwlModel class]]){
+        NSArray * arr = [NSArray arrayWithObjects:value,nil];
+        if ([NSJSONSerialization isValidJSONObject:arr]){
+            NSError * error = nil;
+            NSData * json = [NSJSONSerialization dataWithJSONObject:arr options:NSJSONWritingPrettyPrinted error:&error];
+            if(!error){
+                NSData * encryptedData = [owlCrypto encrypt:[[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding] withPassword:cryptoKey];
+                [owlStorage putWithKey:key value:encryptedData];
+            }else{
+                NSLog(@"%@",[error description]);
+            }
+        }
+    }else{
+        NSData * data = [owlCrypto encrypt:[value toJSONString] withPassword:cryptoKey];
+        [owlStorage putWithKey:key value:data];
+    }
 }
 
 +(id) getWithKey :(NSString *) key andClass:(Class) class{
     id obj = [class alloc];
-    NSString * json = [encryption decryptData:[storage getWithKey:key] withPassword:cryptoKey];
+    if(![class isSubclassOfClass:[OwlModel class]]){
+        NSString *json = [owlCrypto decryptData:[owlStorage getWithKey:key] withPassword:cryptoKey];
+        NSError * error = nil;
+        id obj = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
+        if(!error){
+            return obj[0];
+        }else{
+            NSLog(@"%@", [error description]);
+            return NULL;
+        }
+    }
+    NSString * json = [owlCrypto decryptData:[owlStorage getWithKey:key] withPassword:cryptoKey];
     NSError * error = nil;
     obj = [obj initWithString:json error:&error];
     if(error){
