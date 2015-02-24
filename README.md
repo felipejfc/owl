@@ -1,7 +1,7 @@
 #Owl
 Secure, simple key-value storage for iOS
 
-<img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='128' height='128'/>
+<img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='128' height='140'/>
 
 Owl uses:
 - AES for the crypto
@@ -96,7 +96,7 @@ TestModel2.h
 * Support for arrays
 * Extend compatibility
 
-###License
+###MIT License
 <pre>
 Copyright (c) 2015 Felipe Cavalcanti
 
