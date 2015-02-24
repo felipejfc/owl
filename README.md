@@ -1,6 +1,7 @@
+[![Join the chat at https://gitter.im/felipejfc/owl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/felipejfc/owl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 #Owl
 
-[![Join the chat at https://gitter.im/felipejfc/owl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/felipejfc/owl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Secure, simple key-value storage for iOS
 
 <img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='190' height='128'/>
