@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.dependency 'JSONModel'
   s.dependency 'RNCryptor'
   s.homepage = "https://github.com/felipejfc/owl"
+  s.requires_arc = true
 end
