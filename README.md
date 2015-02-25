@@ -1,3 +1,6 @@
+![](http://img.shields.io/cocoapods/p/Owl.svg?style=flat)
+![](http://img.shields.io/cocoapods/v/Owl.svg?style=flat)
+![](http://img.shields.io/cocoapods/l/Owl.svg?style=flat)
 [![Join the chat at https://gitter.im/felipejfc/owl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/felipejfc/owl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 #Owl
