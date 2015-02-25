@@ -8,7 +8,7 @@
 
 Secure, simple key-value storage for iOS
 
-<img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='180' height='128'/>
+<img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='190' height='128'/>
 
 Owl uses:
 - RNCryptor (AES) for the crypto
