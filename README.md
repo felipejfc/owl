@@ -12,7 +12,7 @@ Secure, simple key-value storage for iOS
 Owl uses:
 - AES for the crypto
 - NSUserDefaults for the persistent storage
-- JSONModel
+- JSONModel 
 
 Owl provides:
 - Secure data persistence
