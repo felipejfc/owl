@@ -1,0 +1,6 @@
+pod 'Owl', :path => '../'
+
+ target :OwlTests do
+   pod 'Specta', '~> 0.3'
+   pod 'Expecta','~> 0.3'
+ end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		736540511A9E0E7C000B351C /* OwlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 736540501A9E0E7C000B351C /* OwlTests.m */; };
 		73BEDDDA1A9C28B7004D3B9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDDD91A9C28B7004D3B9F /* main.m */; };
 		73BEDDDD1A9C28B7004D3B9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDDDC1A9C28B7004D3B9F /* AppDelegate.m */; };
 		73BEDDE01A9C28B7004D3B9F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDDDF1A9C28B7004D3B9F /* ViewController.m */; };
@@ -15,11 +16,26 @@
 		73BEDDE81A9C28B7004D3B9F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BEDDE61A9C28B7004D3B9F /* LaunchScreen.xib */; };
 		73BEDE0E1A9CCBF4004D3B9F /* TestModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE0D1A9CCBF4004D3B9F /* TestModel2.m */; };
 		73BEDE141A9D0364004D3B9F /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE131A9D0364004D3B9F /* TestModel.m */; };
+		73FE76421A9E0BF800B38F57 /* OwlTestsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FE74BC1A9E0BF700B38F57 /* OwlTestsUtil.m */; };
+		D141D9F16B9B95F0D38E6093 /* libPods-OwlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95202713AB7126C8A61BACEC /* libPods-OwlTests.a */; };
 		EEB273E2B4C8F06FA68A7000 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5EC69003EDA190A83972DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		73FE76DC1A9E0C1E00B38F57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73BEDDCC1A9C28B7004D3B9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73BEDDD31A9C28B7004D3B9F;
+			remoteInfo = OwlExample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1DD6A485DB3B0EA1E6B5F87C /* Pods-OwlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OwlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OwlTests/Pods-OwlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E37B79B9DA8CD2BDA0D2F85 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		713E208DCD644253CF49EF3E /* Pods-OwlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OwlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OwlTests/Pods-OwlTests.release.xcconfig"; sourceTree = "<group>"; };
+		736540501A9E0E7C000B351C /* OwlTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwlTests.m; sourceTree = "<group>"; };
 		73BEDDD41A9C28B7004D3B9F /* OwlExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwlExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73BEDDD81A9C28B7004D3B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BEDDD91A9C28B7004D3B9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,6 +50,11 @@
 		73BEDE0C1A9CCBF4004D3B9F /* TestModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel2.h; sourceTree = "<group>"; };
 		73BEDE0D1A9CCBF4004D3B9F /* TestModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel2.m; sourceTree = "<group>"; };
 		73BEDE131A9D0364004D3B9F /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		73FE74BB1A9E0BF700B38F57 /* OwlTestsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OwlTestsUtil.h; path = ../../OwlTests/OwlTests/OwlTestsUtil.h; sourceTree = "<group>"; };
+		73FE74BC1A9E0BF700B38F57 /* OwlTestsUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OwlTestsUtil.m; path = ../../OwlTests/OwlTests/OwlTestsUtil.m; sourceTree = "<group>"; };
+		73FE76D61A9E0C1E00B38F57 /* OwlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OwlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73FE76D91A9E0C1E00B38F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95202713AB7126C8A61BACEC /* libPods-OwlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OwlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11AD01850FEAF827DFCC3E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EC5EC69003EDA190A83972DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -47,6 +68,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73FE76D31A9E0C1E00B38F57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D141D9F16B9B95F0D38E6093 /* libPods-OwlTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				73BEDDD61A9C28B7004D3B9F /* OwlExample */,
+				73FE76D71A9E0C1E00B38F57 /* OwlTests */,
 				73BEDDD51A9C28B7004D3B9F /* Products */,
 				9031E578F60CC5F1ADCD750B /* Pods */,
 				D183CAFFAA564D6D87EA35A5 /* Frameworks */,
@@ -64,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				73BEDDD41A9C28B7004D3B9F /* OwlExample.app */,
+				73FE76D61A9E0C1E00B38F57 /* OwlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,11 +135,32 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		73FE76D71A9E0C1E00B38F57 /* OwlTests */ = {
+			isa = PBXGroup;
+			children = (
+				73FE74BB1A9E0BF700B38F57 /* OwlTestsUtil.h */,
+				73FE74BC1A9E0BF700B38F57 /* OwlTestsUtil.m */,
+				736540501A9E0E7C000B351C /* OwlTests.m */,
+				73FE76D81A9E0C1E00B38F57 /* Supporting Files */,
+			);
+			path = OwlTests;
+			sourceTree = "<group>";
+		};
+		73FE76D81A9E0C1E00B38F57 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				73FE76D91A9E0C1E00B38F57 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		9031E578F60CC5F1ADCD750B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				D11AD01850FEAF827DFCC3E8 /* Pods.debug.xcconfig */,
 				5E37B79B9DA8CD2BDA0D2F85 /* Pods.release.xcconfig */,
+				1DD6A485DB3B0EA1E6B5F87C /* Pods-OwlTests.debug.xcconfig */,
+				713E208DCD644253CF49EF3E /* Pods-OwlTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -117,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				EC5EC69003EDA190A83972DE /* libPods.a */,
+				95202713AB7126C8A61BACEC /* libPods-OwlTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,6 +196,26 @@
 			productReference = 73BEDDD41A9C28B7004D3B9F /* OwlExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		73FE76D51A9E0C1E00B38F57 /* OwlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73FE76DE1A9E0C1E00B38F57 /* Build configuration list for PBXNativeTarget "OwlTests" */;
+			buildPhases = (
+				8AD34D5C98EBCF4FF754E4AC /* Check Pods Manifest.lock */,
+				73FE76D21A9E0C1E00B38F57 /* Sources */,
+				73FE76D31A9E0C1E00B38F57 /* Frameworks */,
+				73FE76D41A9E0C1E00B38F57 /* Resources */,
+				7EFE5BFE1F67E041EFDC2174 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73FE76DD1A9E0C1E00B38F57 /* PBXTargetDependency */,
+			);
+			name = OwlTests;
+			productName = OwlTests;
+			productReference = 73FE76D61A9E0C1E00B38F57 /* OwlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -154,6 +227,10 @@
 				TargetAttributes = {
 					73BEDDD31A9C28B7004D3B9F = {
 						CreatedOnToolsVersion = 6.1.1;
+					};
+					73FE76D51A9E0C1E00B38F57 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 73BEDDD31A9C28B7004D3B9F;
 					};
 				};
 			};
@@ -171,6 +248,7 @@
 			projectRoot = "";
 			targets = (
 				73BEDDD31A9C28B7004D3B9F /* OwlExample */,
+				73FE76D51A9E0C1E00B38F57 /* OwlTests */,
 			);
 		};
 /* End PBXProject section */
@@ -186,10 +264,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73FE76D41A9E0C1E00B38F57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		37C2EE6191C71F7B7E790BB6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7EFE5BFE1F67E041EFDC2174 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OwlTests/Pods-OwlTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AD34D5C98EBCF4FF754E4AC /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -230,11 +345,28 @@
 				73BEDDDD1A9C28B7004D3B9F /* AppDelegate.m in Sources */,
 				73BEDDDA1A9C28B7004D3B9F /* main.m in Sources */,
 				73BEDE141A9D0364004D3B9F /* TestModel.m in Sources */,
+				73FE76421A9E0BF800B38F57 /* OwlTestsUtil.m in Sources */,
 				73BEDE0E1A9CCBF4004D3B9F /* TestModel2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73FE76D21A9E0C1E00B38F57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				736540511A9E0E7C000B351C /* OwlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		73FE76DD1A9E0C1E00B38F57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73BEDDD31A9C28B7004D3B9F /* OwlExample */;
+			targetProxy = 73FE76DC1A9E0C1E00B38F57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		73BEDDE11A9C28B7004D3B9F /* Main.storyboard */ = {
@@ -359,6 +491,42 @@
 			};
 			name = Release;
 		};
+		73FE76DF1A9E0C1E00B38F57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DD6A485DB3B0EA1E6B5F87C /* Pods-OwlTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OwlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OwlExample.app/OwlExample";
+			};
+			name = Debug;
+		};
+		73FE76E01A9E0C1E00B38F57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 713E208DCD644253CF49EF3E /* Pods-OwlTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OwlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OwlExample.app/OwlExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -376,6 +544,15 @@
 			buildConfigurations = (
 				73BEDDF81A9C28B7004D3B9F /* Debug */,
 				73BEDDF91A9C28B7004D3B9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73FE76DE1A9E0C1E00B38F57 /* Build configuration list for PBXNativeTarget "OwlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73FE76DF1A9E0C1E00B38F57 /* Debug */,
+				73FE76E01A9E0C1E00B38F57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
