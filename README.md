@@ -71,7 +71,7 @@ this object also do or are primitives.
 You should only avoid using structs that are not already NSCoding-compliant via NSValue.
 
 ###Changing the AES encryption/decryption key
-As I told, Owl uses AES encryption to securely keep data in NSUserDefaults, for doing so it uses a default key, you can change that key to one of your own by simply making this call:
+As I told, Owl uses AES encryption to securely keep data in NSUserDefaults, for doing so it uses a random generated key, you can change that key to one of your own by simply making this call:
 ```objective-c
 [Owl setPassword:@"aaaasomePassword"];
 ```

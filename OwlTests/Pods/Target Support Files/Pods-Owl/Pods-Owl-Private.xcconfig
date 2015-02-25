@@ -1,5 +1,5 @@
 #include "Pods-Owl.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/Owl" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/Owl" "${PODS_ROOT}/Headers/Public/RNCryptor" "${PODS_ROOT}/Headers/Public/Specta"
-OTHER_LDFLAGS = -ObjC
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/Owl" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/GZIP" "${PODS_ROOT}/Headers/Public/Owl" "${PODS_ROOT}/Headers/Public/RNCryptor" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/Specta"
+OTHER_LDFLAGS = ${PODS_OWL_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}

@@ -6,6 +6,8 @@
 #import "Owl.h"
 #import "OwlStorage.h"
 #import "OwlEncryption.h"
+#import "OwlSec.h"
+#import "GZIP.h"
 #import <objc/runtime.h>
 #import "AutoCoding/AutoCoding.h"
 
@@ -14,7 +16,7 @@
 NSString * cryptoKey;
 OwlStorage * owlStorage;
 OwlEncryption * owlCrypto;
-
+OwlSec * owlSec;
 #pragma mark - initialization methods
 
 +(void)load
@@ -24,19 +26,22 @@ OwlEncryption * owlCrypto;
         @autoreleasepool {
             owlStorage = [[OwlStorage alloc] init];
             owlCrypto = [[OwlEncryption alloc] init];
-            cryptoKey = @"2c)2zW!YS:i9(zlq";
+            owlSec = [[OwlSec alloc] init];
+            cryptoKey = [owlSec getPassword];
         }
     });
 }
 
 +(void) putWithKey :(NSString *) key andValue:(NSObject *) value{
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:value];
+    data = [data gzippedData];
     NSData * encryptedData = [owlCrypto encrypt:data withPassword:cryptoKey];
     [owlStorage putWithKey:key value:encryptedData];
 }
 
 +(id) getWithKey :(NSString *) key{
     NSData * data = [owlCrypto decryptData:[owlStorage getWithKey:key] withPassword:cryptoKey];
+    data = [data gunzippedData];
     id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return obj;
 }

@@ -1,9 +1,13 @@
 PODS:
   - Expecta (0.3.2)
-  - Owl (1.2):
+  - GZIP (1.0.3)
+  - Owl (1.3):
+    - GZIP
     - RNCryptor
+    - SSKeychain
   - RNCryptor (2.2)
   - Specta (0.3.2)
+  - SSKeychain (1.2.2)
 
 DEPENDENCIES:
   - Expecta (~> 0.3)
@@ -16,8 +20,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
-  Owl: f79e3c48099c903872cdd5d5c66c3f6d42b398f0
+  GZIP: f27c434ffee5e9a9b34f4e9c19e91350fa8bbde1
+  Owl: eae7c0186dd1e5115f52b86d24a2b84e2a458352
   RNCryptor: 4f562062c39f288b99601674f2c50dd44b68d58a
   Specta: 698a58ffa5ec948327d3b92eab50ca58d7f4fbe8
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
 
 COCOAPODS: 0.35.0
