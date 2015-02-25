@@ -1,3 +1,6 @@
+![](http://img.shields.io/cocoapods/p/Owl.svg?style=flat)
+![](http://img.shields.io/cocoapods/v/Owl.svg?style=flat)
+![](http://img.shields.io/cocoapods/l/Owl.svg?style=flat)
 [![Join the chat at https://gitter.im/felipejfc/owl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/felipejfc/owl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 #Owl
@@ -60,7 +63,14 @@ Foo * value = [Owl getWithKey:@"key" andClass:[Foo class]];
 ```
 ###Compatibility
 
-Owl can persist the following objects, NSString, NSNumber, NSArray, NSDictionary or NSNull (for this types, All other objects in the hierarchy must be NSString, NSNumber, NSArray, NSDictionary or NSNull as well).<br> Owl can also persist custom Classes, but they **MUST** meet this requirements:
+Owl can persist the following object types directly:
+```
+NSString, NSNumber, NSArray, NSDictionary or NSNull (for this types, All other 
+objects in the hierarchy must be NSString, NSNumber, NSArray, NSDictionary or 
+NSNull as well).
+```
+
+Owl can also persist custom Classes, but they **MUST** meet this requirements:
 * Must subclass OwlModel, example:
 ```
 @interface TestModel : OwlModel
@@ -74,11 +84,12 @@ non-primitives
 [NSString class], [NSNumber class], [NSDecimalNumber class], [NSArray class],
 [NSDictionary class], [NSNull class], [NSMutableString class],
 [NSMutableArray class], [NSMutableDictionary class]
+
 primitives
 @"BOOL", @"float", @"int", @"long", @"double", @"short",
 @"NSInteger", @"NSUInteger",@"Block"
 ```
-*It can also contain another object that also subclass OwlModel and respect all the constraints, for example: <br>
+* It can also contain another object that also subclass OwlModel and respect all the constraints, for example: <br>
 TestModel.h
 ```
 #import "OwlModel.h"
@@ -97,6 +108,14 @@ TestModel2.h
 @property(nonatomic) BOOL testBool;
 @end
 ```
+**note that primitives can be persisted, but only it they are properties of a class that subclasses OwlModel**
+
+####Changing the AES encryption/decryption key
+As I told, Owl uses AES encryption to securely keep data in NSUserDefaults, for doing so it uses a default key, you can change that key to one of your own by simply making this call:
+```objective-c
+[Owl setPassword:@"aaaasomePassword"];
+```
+Remember that, for AES encryption, key length must be 128, 192 or 256 bits long( 16, 24 or 32 chars)
 
 ####ToDo
 * Tests
