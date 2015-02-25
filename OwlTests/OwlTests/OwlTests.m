@@ -10,6 +10,8 @@
 #import "OwlTestsUtil.h"
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
+#import "TestModel.h"
+#import <objc/runtime.h>
 
 SpecBegin(OwlTests)
 
@@ -60,25 +62,85 @@ describe(@"all tests", ^{
             NSArray * arr = [dict objectForKey:@"key1"];
             expect(arr[0]).equal(@"object1");
         });
-
         
     });
     
     describe(@"contains tests", ^{
         
-        it(@"contains returns", <#^(void)block#>)
+        it(@"contains returns true when the key is found", ^{
+            [Owl putWithKey:key andValue:@"someval"];
+            expect([Owl containsKey:key]).equal(true);
+        });
+
+        it(@"contains returns false when the key is not found", ^{
+            expect([Owl containsKey:key]).equal(false);
+        });
         
     });
     
     describe(@"remove tests", ^{
         
+        it(@"must remove", ^{
+            [Owl putWithKey:key andValue:@"someval"];
+            expect([Owl containsKey:key]).equal(true);
+            [Owl removeWithKey:key];
+            expect([Owl containsKey:key]).equal(false);
+        });
+
+        it(@"will not raise if key is not found", ^{
+            [Owl removeWithKey:key];
+        });
+
     });
     
-    describe(@"persist subclasses of OwlmMdel", ^{
+    describe(@"persist subclasses of OwlModel", ^{
         
+        it(@"can persist a custom class that subclasses OwlModel", ^{
+            TestModel * model = [[TestModel alloc] init];
+            [model setASrt:@"some string"];
+            [model setModel:[TestModel2 alloc]];
+            [Owl putWithKey:key andValue:model];
+            TestModel * m = [Owl getWithKey:key andClass:[TestModel class]];
+            expect([m aSrt]).equal(@"some string");
+        });
+        
+        it(@"can persist custom classes that subclasses OwlModel with primitive properties", ^{
+            TestModel * model = [[TestModel alloc] init];
+            [model setASrt:@"some string"];
+            [model setNum:123];
+            [model setModel:[TestModel2 alloc]];
+            [Owl putWithKey:key andValue:model];
+            TestModel * m = [Owl getWithKey:key andClass:[TestModel class]];
+            expect([m aSrt]).equal(@"some string");
+            expect([m num]).equal(123);
+        });
+        
+        it(@"can persist nested objects of classes that subclasses OwlModel", ^{
+            TestModel * model = [[TestModel alloc] init];
+            [model setASrt:@"some string"];
+            [model setNum:123];
+            TestModel2 * model2 = [[TestModel2 alloc]init ];
+            [model2 setNumFloat:3.33f];
+            [model2 setTestBool:TRUE];
+            [model setModel:model2];
+            [Owl putWithKey:key andValue:model];
+            TestModel * m = [Owl getWithKey:key andClass:[TestModel class]];
+            expect([m aSrt]).equal(@"some string");
+            expect([m num]).equal(123);
+            expect([[m model] numFloat]).equal(3.33f);
+            expect([[m model] testBool]).equal(TRUE);
+        });
     });
     
     describe(@"encryption tests", ^{
+        
+        it(@"can not encrypt with one password and decrypt the valid object with another", ^{
+            [Owl putWithKey:key andValue:@"someval"];
+            expect([Owl getWithKey:key andClass:[NSString class]]).equal(@"someval");
+            [Owl setPassword:@"aanotherPassword"];
+            expect([Owl getWithKey:key andClass:[NSString class]]).notTo.equal(@"someval");
+        });
+        
     });
 
 });

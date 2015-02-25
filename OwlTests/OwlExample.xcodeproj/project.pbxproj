@@ -135,9 +135,17 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		73DC33E31A9E165100F06ABC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		73FE76D71A9E0C1E00B38F57 /* OwlTests */ = {
 			isa = PBXGroup;
 			children = (
+				73DC33E31A9E165100F06ABC /* Models */,
 				73FE74BB1A9E0BF700B38F57 /* OwlTestsUtil.h */,
 				73FE74BC1A9E0BF700B38F57 /* OwlTestsUtil.m */,
 				736540501A9E0E7C000B351C /* OwlTests.m */,
