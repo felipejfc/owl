@@ -101,6 +101,13 @@ TestModel2.h
 @end
 ```
 
+####Changing the AES encryption/decryption key
+As I told, Owl uses AES encryption to securely keep data in NSUserDefaults, for doing so it uses a default key, you can change that key to one of your own by simply making this call:
+```objective-c
+[Owl setPassword:@"aaaasomePassword"];
+```
+Remember that, for AES encryption, key length must be 128, 192 or 256 bits long( 16, 24 or 32 chars)
+
 ####ToDo
 * Tests
 * Support for arrays
