@@ -1,0 +1,26 @@
+PODS:
+  - Expecta (0.3.2)
+  - JSONModel (1.0.2)
+  - Owl (1.0):
+    - JSONModel
+    - RNCryptor
+  - RNCryptor (2.2)
+  - Specta (0.3.2)
+
+DEPENDENCIES:
+  - Expecta (~> 0.3)
+  - Owl (from `../`)
+  - Specta (~> 0.3)
+
+EXTERNAL SOURCES:
+  Owl:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
+  JSONModel: cbdef0fdff1cc70e913a860861d3072860efd3a1
+  Owl: efd1ad10f2061e6157326d21673a0db5743723da
+  RNCryptor: 4f562062c39f288b99601674f2c50dd44b68d58a
+  Specta: 698a58ffa5ec948327d3b92eab50ca58d7f4fbe8
+
+COCOAPODS: 0.35.0

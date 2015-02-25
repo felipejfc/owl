@@ -16,6 +16,3 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-Pods/
-OwlTests/Pods/
-
