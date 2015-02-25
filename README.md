@@ -11,13 +11,13 @@ Secure, simple key-value storage for iOS
 <img src='http://spectrumtab.com/wp-content/uploads/2013/01/Owl-Logo.jpg' width='180' height='128'/>
 
 Owl uses:
-- AES for the crypto
+- RNCryptor (AES) for the crypto
 - NSUserDefaults for the persistent storage
-- JSONModel
+- AutoCoding
 
 Owl provides:
 - Secure data persistence
-- Save almost any type
+- Save any object that subclasses NSObject
 
 ###Add pod
 ```groovy
@@ -29,12 +29,12 @@ pod 'Owl'
 
 #### Save
 ```objective-c
-[Owl putWithKey:@"key" andValue:value];
+[Owl putWithKey:@"key" andValue:object];
 ```
 
 #### Get
 ```objective-c
-T * object = [Owl getWithKey:@"key" andClass:[T class]];
+T * object = [Owl getWithKey:@"key"];
 ```
 
 #### Remove
@@ -50,17 +50,19 @@ BOOL ret = [Owl containsKey:@"key"];
 ##### More samples for save
 
 ```objective-c
-[Owl putWithKey:@"key" andValue:@"Hello"]; //save string
-[Owl putWithKey:@"key" andValue:[NSNumber numberWithInt:1]]; // save number
-[Owl putWithKey:@"key" andValue:[[TestModel alloc] init]]; // save an object (must subclass OwlModel, see below)
+[Owl putWithKey:@"a" andValue:[NSArray arrayWithObjects:object1, object2,...]]; //save array
+[Owl putWithKey:@"b" andValue:@"Hello"]; //save string
+[Owl putWithKey:@"c" andValue:[NSNumber numberWithInt:1]]; // save number
+[Owl putWithKey:@"d" andValue:[[TestModel alloc] init]]; // save an object
 ```
 
 ##### More samples for get
 
 ```objective-c
-NSString * value = [Owl getWithKey:@"key" andClass:[NSString class]];
-NSNumber * value = [Owl getWithKey:@"key" andClass:[NSNumber class]];
-Foo * value = [Owl getWithKey:@"key" andClass:[Foo class]];
+NSArray * value = [Owl getWithKey:@"a"]; //load array
+NSString * value = [Owl getWithKey:@"b"]; //load string
+NSNumber * value = [Owl getWithKey:@"c"]; //load number
+Foo * value = [Owl getWithKey:@"d"]; //load an object
 ```
 ###Compatibility
 
@@ -74,10 +76,6 @@ As I told, Owl uses AES encryption to securely keep data in NSUserDefaults, for 
 [Owl setPassword:@"aaaasomePassword"];
 ```
 Remember that, for AES encryption, key length must be 128, 192 or 256 bits long( 16, 24 or 32 chars)
-
-###ToDo
-* Support for arrays
-* Extend compatibility to any object type
 
 ###MIT License
 <pre>

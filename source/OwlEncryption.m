@@ -1,10 +1,7 @@
-//
-//  OwlEncryption.m
-//  Pods
-//
-//  Created by Felipe Cavalcanti on 24/02/15.
-//
-//
+/*
+ Copyright (c) 2015 Felipe Cavalcanti
+ See the file LICENSE for copying permission.
+ */
 
 #import "OwlEncryption.h"
 #import "RNEncryptor.h"

@@ -46,7 +46,7 @@
 }
 
 - (IBAction)load:(id)sender {
-    TestModel * test = [Owl getWithKey:@"safe" andClass:[TestModel class]];
+    TestModel * test = [Owl getWithKey:@"safe"];
     [toLoadSafeTextField setText:[NSString stringWithFormat:@"%@",[test aSrt]]];
 }
 

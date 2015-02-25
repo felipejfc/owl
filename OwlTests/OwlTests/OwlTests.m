@@ -1,10 +1,7 @@
-//
-//  OwlTests.m
-//  OwlExample
-//
-//  Created by Felipe Cavalcanti on 25/02/15.
-//  Copyright (c) 2015 felipejfc. All rights reserved.
-//
+/*
+Copyright (c) 2015 Felipe Cavalcanti
+See the file LICENSE for copying permission.
+*/
 
 #import "Owl.h"
 #import "OwlTestsUtil.h"
@@ -32,17 +29,17 @@ describe(@"all tests", ^{
 
         it(@"can persist NSString", ^{
             [Owl putWithKey:key andValue:@"hello!"];
-            expect([Owl getWithKey:key andClass:[NSString class]]).equal(@"hello!");
+            expect([Owl getWithKey:key]).equal(@"hello!");
         });
         
         it(@"can persist NSNumber", ^{
             [Owl putWithKey:key andValue:[NSNumber numberWithDouble:3.3f]];
-            expect([Owl getWithKey:key andClass:[NSString class]]).equal([NSNumber numberWithDouble:3.3f]);
+            expect([Owl getWithKey:key]).equal([NSNumber numberWithDouble:3.3f]);
         });
 
         it(@"can persist NSArray", ^{
             [Owl putWithKey:key andValue:[NSArray arrayWithObjects:@"object1", @"object2", [NSNumber numberWithInt:1],nil]];
-            NSArray * arr = [Owl getWithKey:key andClass:[NSArray class]];
+            NSArray * arr = [Owl getWithKey:key];
             expect(arr[0]).equal(@"object1");
             expect(arr[1]).equal(@"object2");
             expect([(NSNumber *)arr[2] integerValue]).equal(1);
@@ -50,7 +47,7 @@ describe(@"all tests", ^{
 
         it(@"can persist NSDictionary", ^{
             [Owl putWithKey:key andValue:[NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1", nil]];
-            NSDictionary * myDict = [Owl getWithKey:key andClass:[NSDictionary class]];
+            NSDictionary * myDict = [Owl getWithKey:key];
             expect([myDict objectForKey:@"key1"]).equal(@"object1");
         });
 
@@ -58,11 +55,28 @@ describe(@"all tests", ^{
             NSArray * myArr = [NSArray arrayWithObjects:@"object1", @"object2", [NSNumber numberWithInt:1], nil];
             NSDictionary * myDict = [NSDictionary dictionaryWithObjectsAndKeys:myArr, @"key1", nil];
             [Owl putWithKey:key andValue:myDict];
-            NSDictionary * dict = [Owl getWithKey:key andClass:[NSDictionary class]];
+            NSDictionary * dict = [Owl getWithKey:key];
             NSArray * arr = [dict objectForKey:@"key1"];
             expect(arr[0]).equal(@"object1");
         });
                 
+    });
+    
+    describe(@"array of objects tests", ^{
+       
+        it(@"can persist arrays of objects", ^{
+            TestModel * model = [[TestModel alloc] init];
+            [model setASrt:@"test"];
+            TestModel * model2 = [[TestModel alloc] init];
+            [model2 setNum:123];
+            [model2 setASrt:@"test"];
+            NSArray * arr = [NSArray arrayWithObjects:model, model2, nil];
+            [Owl putWithKey:key andValue:arr];
+            NSArray * arr2 = [Owl getWithKey:key];
+            expect([arr2[0] aSrt]).equal(@"test");
+            expect([arr2[1] num]).equal(123);
+        });
+        
     });
     
     describe(@"contains tests", ^{
@@ -100,7 +114,7 @@ describe(@"all tests", ^{
             [model setASrt:@"some string"];
             [model setModel:[TestModel2 alloc]];
             [Owl putWithKey:key andValue:model];
-            TestModel * m = [Owl getWithKey:key andClass:[TestModel class]];
+            TestModel * m = [Owl getWithKey:key];
             expect([m aSrt]).equal(@"some string");
         });
         
@@ -110,7 +124,7 @@ describe(@"all tests", ^{
             [model setNum:123];
             [model setModel:[TestModel2 alloc]];
             [Owl putWithKey:key andValue:model];
-            TestModel * m = [Owl getWithKey:key andClass:[TestModel class]];
+            TestModel * m = [Owl getWithKey:key];
             expect([m aSrt]).equal(@"some string");
             expect([m num]).equal(123);
         });
@@ -124,7 +138,7 @@ describe(@"all tests", ^{
             [model2 setTestBool:TRUE];
             [model setModel:model2];
             [Owl putWithKey:key andValue:model];
-            TestModel * m = [Owl getWithKey:key andClass:[TestModel class]];
+            TestModel * m = [Owl getWithKey:key];
             expect([m aSrt]).equal(@"some string");
             expect([m num]).equal(123);
             expect([[m model] numFloat]).equal(3.33f);
@@ -136,9 +150,9 @@ describe(@"all tests", ^{
         
         it(@"can not encrypt with one password and decrypt the valid object with another", ^{
             [Owl putWithKey:key andValue:@"someval"];
-            expect([Owl getWithKey:key andClass:[NSString class]]).equal(@"someval");
+            expect([Owl getWithKey:key]).equal(@"someval");
             [Owl setPassword:@"aanotherPassword"];
-            expect([Owl getWithKey:key andClass:[NSString class]]).notTo.equal(@"someval");
+            expect([Owl getWithKey:key]).notTo.equal(@"someval");
         });
         
     });

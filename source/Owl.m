@@ -1,10 +1,7 @@
-//
-//  Owl.m
-//  Pods
-//
-//  Created by Felipe Cavalcanti on 24/02/15.
-//
-//
+/*
+ Copyright (c) 2015 Felipe Cavalcanti
+ See the file LICENSE for copying permission.
+ */
 
 #import "Owl.h"
 #import "OwlStorage.h"
@@ -38,7 +35,7 @@ OwlEncryption * owlCrypto;
     [owlStorage putWithKey:key value:encryptedData];
 }
 
-+(id) getWithKey :(NSString *) key andClass:(Class) class{
++(id) getWithKey :(NSString *) key{
     NSData * data = [owlCrypto decryptData:[owlStorage getWithKey:key] withPassword:cryptoKey];
     id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return obj;
