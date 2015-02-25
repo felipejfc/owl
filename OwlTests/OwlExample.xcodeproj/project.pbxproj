@@ -16,7 +16,7 @@
 		73BEDDE81A9C28B7004D3B9F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BEDDE61A9C28B7004D3B9F /* LaunchScreen.xib */; };
 		73BEDE0E1A9CCBF4004D3B9F /* TestModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE0D1A9CCBF4004D3B9F /* TestModel2.m */; };
 		73BEDE141A9D0364004D3B9F /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BEDE131A9D0364004D3B9F /* TestModel.m */; };
-		73FE76421A9E0BF800B38F57 /* OwlTestsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FE74BC1A9E0BF700B38F57 /* OwlTestsUtil.m */; };
+		73DC33F41A9E2E4700F06ABC /* OwlTestsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FE74BC1A9E0BF700B38F57 /* OwlTestsUtil.m */; };
 		D141D9F16B9B95F0D38E6093 /* libPods-OwlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95202713AB7126C8A61BACEC /* libPods-OwlTests.a */; };
 		EEB273E2B4C8F06FA68A7000 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5EC69003EDA190A83972DE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -353,7 +353,6 @@
 				73BEDDDD1A9C28B7004D3B9F /* AppDelegate.m in Sources */,
 				73BEDDDA1A9C28B7004D3B9F /* main.m in Sources */,
 				73BEDE141A9D0364004D3B9F /* TestModel.m in Sources */,
-				73FE76421A9E0BF800B38F57 /* OwlTestsUtil.m in Sources */,
 				73BEDE0E1A9CCBF4004D3B9F /* TestModel2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73DC33F41A9E2E4700F06ABC /* OwlTestsUtil.m in Sources */,
 				736540511A9E0E7C000B351C /* OwlTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
