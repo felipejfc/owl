@@ -32,9 +32,9 @@ OwlEncryption * owlCrypto;
         }
     });
 }
-//TODO put and get JSONSerializables
+
 +(void) putWithKey :(NSString *) key andValue:(id) value{
-    if(![[value class] isSubclassOfClass:[OwlModel class]]){
+    if(![[value class] isSubclassOfClass: NSClassFromString(NSStringFromClass([OwlModel class]))]){
         NSArray * arr = [NSArray arrayWithObjects:value,nil];
         if ([NSJSONSerialization isValidJSONObject:arr]){
             NSError * error = nil;
@@ -53,8 +53,9 @@ OwlEncryption * owlCrypto;
 }
 
 +(id) getWithKey :(NSString *) key andClass:(Class) class{
-    id obj = [class alloc];
-    if(![class isSubclassOfClass:[OwlModel class]]){
+    //using this because test had a problem with using class directly
+    id obj = [NSClassFromString(NSStringFromClass(class)) alloc];
+    if(![class isSubclassOfClass:NSClassFromString(NSStringFromClass([OwlModel class]))]){
         NSString *json = [owlCrypto decryptData:[owlStorage getWithKey:key] withPassword:cryptoKey];
         NSError * error = nil;
         id obj = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
