@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OwlModel.h"
 #import "TestModel2.h"
 
-@interface TestModel : OwlModel
+@interface TestModel : NSObject
 @property(nonatomic, strong) NSString *aSrt;
 @property(nonatomic, strong) TestModel2 *model;
 @property(nonatomic) int num;

@@ -62,7 +62,7 @@ describe(@"all tests", ^{
             NSArray * arr = [dict objectForKey:@"key1"];
             expect(arr[0]).equal(@"object1");
         });
-        
+                
     });
     
     describe(@"contains tests", ^{
@@ -93,9 +93,9 @@ describe(@"all tests", ^{
 
     });
     
-    describe(@"persist subclasses of OwlModel", ^{
+    describe(@"persist custom classes", ^{
         
-        it(@"can persist a custom class that subclasses OwlModel", ^{
+        it(@"can persist a custom class", ^{
             TestModel * model = [[TestModel alloc] init];
             [model setASrt:@"some string"];
             [model setModel:[TestModel2 alloc]];
@@ -104,7 +104,7 @@ describe(@"all tests", ^{
             expect([m aSrt]).equal(@"some string");
         });
         
-        it(@"can persist custom classes that subclasses OwlModel with primitive properties", ^{
+        it(@"can persist custom class with primitive properties", ^{
             TestModel * model = [[TestModel alloc] init];
             [model setASrt:@"some string"];
             [model setNum:123];
@@ -115,7 +115,7 @@ describe(@"all tests", ^{
             expect([m num]).equal(123);
         });
         
-        it(@"can persist nested objects of classes that subclasses OwlModel", ^{
+        it(@"can persist nested objects of classes", ^{
             TestModel * model = [[TestModel alloc] init];
             [model setASrt:@"some string"];
             [model setNum:123];

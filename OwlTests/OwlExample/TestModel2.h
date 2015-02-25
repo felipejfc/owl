@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 felipejfc. All rights reserved.
 //
 
-#import "OwlModel.h"
+#import <Foundation/Foundation.h>
 
-@interface TestModel2 : OwlModel
+@interface TestModel2 : NSObject
 @property(nonatomic) float numFloat;
 @property(nonatomic) BOOL testBool;
 

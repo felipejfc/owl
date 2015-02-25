@@ -13,7 +13,7 @@ Secure, simple key-value storage for iOS
 Owl uses:
 - AES for the crypto
 - NSUserDefaults for the persistent storage
-- JSONModel 
+- JSONModel
 
 Owl provides:
 - Secure data persistence
@@ -64,52 +64,9 @@ Foo * value = [Owl getWithKey:@"key" andClass:[Foo class]];
 ```
 ###Compatibility
 
-Owl can persist the following object types directly:
-```
-NSString, NSNumber, NSArray, NSDictionary or NSNull (for this types, All other 
-objects in the hierarchy must be NSString, NSNumber, NSArray, NSDictionary or 
-NSNull as well).
-```
-
-Owl can also persist custom Classes, but they **MUST** meet this requirements:
-* Must subclass OwlModel, example:
-```
-@interface TestModel : OwlModel
-    @property(nonatomic, strong) NSString *aSrt;
-    @property(nonatomic) int num;
-@end
-```
-* The classes of its properties must be either:
-```
-non-primitives
-[NSString class], [NSNumber class], [NSDecimalNumber class], [NSArray class],
-[NSDictionary class], [NSNull class], [NSMutableString class],
-[NSMutableArray class], [NSMutableDictionary class]
-
-primitives
-@"BOOL", @"float", @"int", @"long", @"double", @"short",
-@"NSInteger", @"NSUInteger",@"Block"
-```
-* It can also contain another object that also subclass OwlModel and respect all the constraints, for example: <br>
-TestModel.h
-```
-#import "OwlModel.h"
-#import "TestModel2.h"
-@interface TestModel : OwlModel
-@property(nonatomic, strong) NSString *aSrt;
-@property(nonatomic, strong) TestModel2 *model;
-@property(nonatomic) int num;
-@end
-```
-TestModel2.h
-```
-#import "OwlModel.h"
-@interface TestModel2 : OwlModel
-@property(nonatomic) float numFloat;
-@property(nonatomic) BOOL testBool;
-@end
-```
-**note that primitives can be persisted, but only it they are properties of a class that subclasses OwlModel**
+Owl can persist **everything that subclasses NSObject**, assuming that all the properties of
+this object also do or are primitives.
+You should only avoid using structs that are not already NSCoding-compliant via NSValue.
 
 ####Changing the AES encryption/decryption key
 As I told, Owl uses AES encryption to securely keep data in NSUserDefaults, for doing so it uses a default key, you can change that key to one of your own by simply making this call:

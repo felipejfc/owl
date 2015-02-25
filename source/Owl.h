@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OwlModel.h"
 
 @interface Owl : NSObject
 
