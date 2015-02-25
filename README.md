@@ -81,7 +81,7 @@ primitives
 @"BOOL", @"float", @"int", @"long", @"double", @"short",
 @"NSInteger", @"NSUInteger",@"Block"
 ```
-*It can also contain another object that also subclass OwlModel and respect all the constraints, for example: <br>
+* It can also contain another object that also subclass OwlModel and respect all the constraints, for example: <br>
 TestModel.h
 ```
 #import "OwlModel.h"
