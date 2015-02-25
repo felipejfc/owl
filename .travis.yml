@@ -1,6 +1,7 @@
 language: objective-c
 xcode_workspace: OwlTests/OwlExample.xcworkspace # path to your xcodeproj folder
 xcode_scheme: OwlTests
+xcode_sdk: iphonesimulator
 
 notifications:
   webhooks:
