@@ -4,18 +4,19 @@
  */
 
 #import "OwlSec.h"
-
 @implementation OWLSec
 
-NSString * generatePassword()
+//generatePassword
+NSData * jfainfleaslfkje()
 {
     uint8_t rBytes[16];
     SecRandomCopyBytes(kSecRandomDefault, 16, rBytes);
-    return [[NSString alloc] initWithBytes:rBytes length:16 encoding:NSASCIIStringEncoding];
+    return [NSData dataWithBytes:rBytes length:16];
 }
 
-NSString * getPassword(OWLSec * self){
-    NSString * password = [SSKeychain passwordForService:@"owlService" account:@"p"];
+//getPassword
+NSData * fjekljflksdn(OWLSec * self){
+    NSData * password = fetchPasswordFromKeyChain();
     if(password == nil){
         password = generatePassword();
         persistPassword(password);
@@ -23,8 +24,58 @@ NSString * getPassword(OWLSec * self){
     return password;
 }
 
-void persistPassword (NSString * password){
-    [SSKeychain setPassword:password forService:@"owlService" account:@"p"];
+//persistPassword
+void jfewjflkje (NSData * password){
+    savePasswordToKeyChain(password);
+}
+
+//savePasswordToKeyChain
+BOOL jhfiuasdhoafih(NSData* password) {
+    OSStatus status = -1001;
+
+    deletePasswordFromKeyChain();
+    
+    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"owlService", kSecAttrService, @"p", kSecAttrAccount, password, kSecValueData , nil];
+    [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+
+    status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
+    
+    return (status == errSecSuccess);
+}
+
+//deletePasswordFromKeyChain
+BOOL dsfjsagfhejghj() {
+    OSStatus status = -1001;
+    
+    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"owlService", kSecAttrService, @"p", kSecAttrAccount, nil];
+    [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+#if TARGET_OS_IPHONE
+    status = SecItemDelete((__bridge CFDictionaryRef)query);
+#else
+    CFTypeRef result = NULL;
+    [query setObject:@YES forKey:(__bridge id)kSecReturnRef];
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+    if (status == errSecSuccess) {
+        status = SecKeychainItemDelete((SecKeychainItemRef)result);
+        CFRelease(result);
+    }
+#endif
+    
+    return (status == errSecSuccess);
+}
+
+//fetchPasswordFromKeyChain
+NSData* hfajksdhfksdjhf() {
+    OSStatus status = -1001;
+    
+    CFTypeRef result = NULL;
+    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"owlService", kSecAttrService, @"p", kSecAttrAccount, nil];
+    [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    [query setObject:@YES forKey:(__bridge id)kSecReturnData];
+    [query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+    
+    return (__bridge_transfer NSData *)result;
 }
 
 @end

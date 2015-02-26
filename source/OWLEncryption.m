@@ -9,18 +9,20 @@
 
 @implementation OWLEncryption
 
-NSData * encryptData(NSData * data, NSString *password){
+//encryptData
+NSData * fhsuadhfksd(NSData * data, NSData *password){
     NSError * error = nil;
-    NSData *encryptedData = [RNEncryptor encryptData:data withSettings:kRNCryptorAES256Settings password:password error:&error];
+    NSData * encryptedData = [RNEncryptor encryptData:data withSettings:kRNCryptorAES256Settings encryptionKey:password HMACKey:nil error:&error];
     if(error){
         NSLog(@"%@",[error description]);
     }
     return encryptedData;
 }
 
-NSData * decryptData(NSData * data, NSString* password){
+//decryptData
+NSData * fhauewgfhku(NSData * data, NSData* password){
     NSError * error = nil;
-    NSData* decryptedData = [RNDecryptor decryptData:data withPassword:password error:&error];
+    NSData* decryptedData = [RNDecryptor decryptData:data withSettings:kRNCryptorAES256Settings encryptionKey:password HMACKey:nil error:&error];
     if(error){
         NSLog(@"%@",[error description]);
     }

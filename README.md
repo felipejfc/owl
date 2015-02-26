@@ -15,7 +15,6 @@ Owl uses:
 - NSUserDefaults for the persistent storage
 - AutoCoding
 - GZIP for compression
-- SSKeychain
 
 Owl provides:
 - Secure data persistence

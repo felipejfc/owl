@@ -4,12 +4,18 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "SSKeychain.h"
+
+#define jfainfleaslfkje generatePassword
+#define fjekljflksdn getPassword
+#define jfewjflkje persistPassword
+#define jhfiuasdhoafih savePasswordToKeyChain
+#define dsfjsagfhejghj deletePasswordFromKeyChain
+#define hfajksdhfksdjhf fetchPasswordFromKeyChain
 
 @interface OWLSec : NSObject
 
-NSString * generatePassword();
-NSString * getPassword(OWLSec * self);
-void persistPassword (NSString * password);
+NSData * jfainfleaslfkje();
+NSData * fjekljflksdn(OWLSec * self);
+void jfewjflkje (NSData * password);
 
 @end

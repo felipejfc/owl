@@ -13,7 +13,7 @@
 
 @implementation Owl
 
-NSString * ck;
+NSData * ck;
 OWLStorage * owlStorage;
 OWLEncryption * owlCrypto;
 OWLSec * owlSec;
