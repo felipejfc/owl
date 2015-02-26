@@ -21,13 +21,15 @@ Owl provides:
 - Secure data persistence
 - Save any object that subclasses NSObject
 
+### Using Owl
+
 ###Add pod
 ```groovy
 pod 'Owl'
 ```
+
 ###Import  Owl
 ```#import "Owl.h"```
-### Using Owl
 
 #### Save
 ```objective-c
