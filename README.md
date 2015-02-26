@@ -14,6 +14,8 @@ Owl uses:
 - RNCryptor (AES) for the crypto
 - NSUserDefaults for the persistent storage
 - AutoCoding
+- GZIP for compression
+- SSKeychain
 
 Owl provides:
 - Secure data persistence
