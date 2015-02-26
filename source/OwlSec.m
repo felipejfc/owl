@@ -10,26 +10,24 @@
 
 @implementation OwlSec
 
-+ (NSString *)GetUUID
++ (NSString *)generatePassword
 {
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);
-    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-    CFRelease(theUUID);
-    return (__bridge NSString *)string;
+    uint8_t rBytes[16];
+    SecRandomCopyBytes(kSecRandomDefault, 16, rBytes);
+    return [[NSString alloc] initWithBytes:rBytes length:16 encoding:NSASCIIStringEncoding];
 }
 
 - (NSString *) getPassword{
-    NSString * password = [SSKeychain passwordForService:@"owlService" account:@"owlPassword"];
+    NSString * password = [SSKeychain passwordForService:@"owlService" account:@"p"];
     if(password == nil){
-        //generates a 16 chars password
-        password = [[OwlSec GetUUID] substringToIndex:16];
+        password = [OwlSec generatePassword];
         [self persistPassword:password];
     }
     return password;
 }
 
 - (void) persistPassword :(NSString *) password{
-    [SSKeychain setPassword:password forService:@"owlService" account:@"owlPassword"];
+    [SSKeychain setPassword:password forService:@"owlService" account:@"p"];
 }
 
 @end
