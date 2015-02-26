@@ -4,9 +4,9 @@
  */
 
 #import "Owl.h"
-#import "OwlStorage.h"
-#import "OwlEncryption.h"
-#import "OwlSec.h"
+#import "OWLStorage.h"
+#import "OWLEncryption.h"
+#import "OWLSec.h"
 #import "GZIP.h"
 #import <objc/runtime.h>
 #import "AutoCoding/AutoCoding.h"
@@ -14,9 +14,9 @@
 @implementation Owl
 
 NSString * cryptoKey;
-OwlStorage * owlStorage;
-OwlEncryption * owlCrypto;
-OwlSec * owlSec;
+OWLStorage * owlStorage;
+OWLEncryption * owlCrypto;
+OWLSec * owlSec;
 #pragma mark - initialization methods
 
 +(void)load
@@ -24,30 +24,30 @@ OwlSec * owlSec;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         @autoreleasepool {
-            owlStorage = [[OwlStorage alloc] init];
-            owlCrypto = [[OwlEncryption alloc] init];
-            owlSec = [[OwlSec alloc] init];
+            owlStorage = [[OWLStorage alloc] init];
+            owlCrypto = [[OWLEncryption alloc] init];
+            owlSec = [[OWLSec alloc] init];
             cryptoKey = [owlSec getPassword];
         }
     });
 }
 
-+(void) putWithKey :(NSString *) key andValue:(NSObject *) value{
-    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:value];
++(void) putObject :(NSObject *) object withKey:(NSString *) key{
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:object];
     data = [data gzippedData];
-    NSData * encryptedData = [owlCrypto encrypt:data withPassword:cryptoKey];
-    [owlStorage putWithKey:key value:encryptedData];
+    NSData * encryptedData = [owlCrypto encryptData:data withPassword:cryptoKey];
+    [owlStorage putObject:encryptedData withKey:key];
 }
 
-+(id) getWithKey :(NSString *) key{
-    NSData * data = [owlCrypto decryptData:[owlStorage getWithKey:key] withPassword:cryptoKey];
++(id) getObjectWithKey :(NSString *) key{
+    NSData * data = [owlCrypto decryptData:[owlStorage getObjectWithKey:key] withPassword:cryptoKey];
     data = [data gunzippedData];
     id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return obj;
 }
 
-+(void) removeWithKey :(NSString *) key{
-    [owlStorage removeWithKey:key];
++(void) removeObjectWithKey :(NSString *) key{
+    [owlStorage removeObjectWithKey:key];
 }
 
 +(bool) containsKey :(NSString *) key{

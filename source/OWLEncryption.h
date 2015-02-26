@@ -3,9 +3,9 @@
  See the file LICENSE for copying permission.
  */
 
-@interface OwlEncryption : NSObject
+@interface OWLEncryption : NSObject
 
-- (NSData *) encrypt :(NSData *) data withPassword:(NSString *) password;
+- (NSData *) encryptData :(NSData *) data withPassword:(NSString *) password;
 - (NSData *) decryptData :(NSData *) data withPassword:(NSString *) password;
 
 @end

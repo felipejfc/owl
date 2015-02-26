@@ -22,40 +22,40 @@ describe(@"all tests", ^{
     
     beforeEach(^{
         [Owl setPassword:[OwlTestsUtil randomStringWithLength:32]];
-        [Owl removeWithKey:key];
+        [Owl removeObjectWithKey:key];
     });
     
     describe(@"persist NSWrappers test", ^{
 
         it(@"can persist NSString", ^{
-            [Owl putWithKey:key andValue:@"hello!"];
-            expect([Owl getWithKey:key]).equal(@"hello!");
+            [Owl putObject:@"hello!" withKey:key];
+            expect([Owl getObjectWithKey:key]).equal(@"hello!");
         });
         
         it(@"can persist NSNumber", ^{
-            [Owl putWithKey:key andValue:[NSNumber numberWithDouble:3.3f]];
-            expect([Owl getWithKey:key]).equal([NSNumber numberWithDouble:3.3f]);
+            [Owl putObject:[NSNumber numberWithDouble:3.3f] withKey:key];
+            expect([Owl getObjectWithKey:key]).equal([NSNumber numberWithDouble:3.3f]);
         });
 
         it(@"can persist NSArray", ^{
-            [Owl putWithKey:key andValue:[NSArray arrayWithObjects:@"object1", @"object2", [NSNumber numberWithInt:1],nil]];
-            NSArray * arr = [Owl getWithKey:key];
+            [Owl putObject:[NSArray arrayWithObjects:@"object1", @"object2", [NSNumber numberWithInt:1],nil] withKey:key];
+            NSArray * arr = [Owl getObjectWithKey:key];
             expect(arr[0]).equal(@"object1");
             expect(arr[1]).equal(@"object2");
             expect([(NSNumber *)arr[2] integerValue]).equal(1);
         });
 
         it(@"can persist NSDictionary", ^{
-            [Owl putWithKey:key andValue:[NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1", nil]];
-            NSDictionary * myDict = [Owl getWithKey:key];
+            [Owl putObject:[NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1", nil] withKey:key];
+            NSDictionary * myDict = [Owl getObjectWithKey:key];
             expect([myDict objectForKey:@"key1"]).equal(@"object1");
         });
 
         it(@"can persist nested objects", ^{
             NSArray * myArr = [NSArray arrayWithObjects:@"object1", @"object2", [NSNumber numberWithInt:1], nil];
             NSDictionary * myDict = [NSDictionary dictionaryWithObjectsAndKeys:myArr, @"key1", nil];
-            [Owl putWithKey:key andValue:myDict];
-            NSDictionary * dict = [Owl getWithKey:key];
+            [Owl putObject:myDict withKey:key];
+            NSDictionary * dict = [Owl getObjectWithKey:key];
             NSArray * arr = [dict objectForKey:@"key1"];
             expect(arr[0]).equal(@"object1");
         });
@@ -71,8 +71,8 @@ describe(@"all tests", ^{
             [model2 setNum:123];
             [model2 setASrt:@"test"];
             NSArray * arr = [NSArray arrayWithObjects:model, model2, nil];
-            [Owl putWithKey:key andValue:arr];
-            NSArray * arr2 = [Owl getWithKey:key];
+            [Owl putObject:arr withKey:key];
+            NSArray * arr2 = [Owl getObjectWithKey:key];
             expect([arr2[0] aSrt]).equal(@"test");
             expect([arr2[1] num]).equal(123);
         });
@@ -82,7 +82,7 @@ describe(@"all tests", ^{
     describe(@"contains tests", ^{
         
         it(@"contains returns true when the key is found", ^{
-            [Owl putWithKey:key andValue:@"someval"];
+            [Owl putObject:@"someval" withKey:key];
             expect([Owl containsKey:key]).equal(true);
         });
 
@@ -95,14 +95,14 @@ describe(@"all tests", ^{
     describe(@"remove tests", ^{
         
         it(@"must remove", ^{
-            [Owl putWithKey:key andValue:@"someval"];
+            [Owl putObject:@"someval" withKey:key];
             expect([Owl containsKey:key]).equal(true);
-            [Owl removeWithKey:key];
+            [Owl removeObjectWithKey:key];
             expect([Owl containsKey:key]).equal(false);
         });
 
         it(@"will not raise if key is not found", ^{
-            [Owl removeWithKey:key];
+            [Owl removeObjectWithKey:key];
         });
 
     });
@@ -113,8 +113,8 @@ describe(@"all tests", ^{
             TestModel * model = [[TestModel alloc] init];
             [model setASrt:@"some string"];
             [model setModel:[TestModel2 alloc]];
-            [Owl putWithKey:key andValue:model];
-            TestModel * m = [Owl getWithKey:key];
+            [Owl putObject:model withKey:key];
+            TestModel * m = [Owl getObjectWithKey:key];
             expect([m aSrt]).equal(@"some string");
         });
         
@@ -123,8 +123,8 @@ describe(@"all tests", ^{
             [model setASrt:@"some string"];
             [model setNum:123];
             [model setModel:[TestModel2 alloc]];
-            [Owl putWithKey:key andValue:model];
-            TestModel * m = [Owl getWithKey:key];
+            [Owl putObject:model withKey:key];
+            TestModel * m = [Owl getObjectWithKey:key];
             expect([m aSrt]).equal(@"some string");
             expect([m num]).equal(123);
         });
@@ -137,8 +137,8 @@ describe(@"all tests", ^{
             [model2 setNumFloat:3.33f];
             [model2 setTestBool:TRUE];
             [model setModel:model2];
-            [Owl putWithKey:key andValue:model];
-            TestModel * m = [Owl getWithKey:key];
+            [Owl putObject:model withKey:key];
+            TestModel * m = [Owl getObjectWithKey:key];
             expect([m aSrt]).equal(@"some string");
             expect([m num]).equal(123);
             expect([[m model] numFloat]).equal(3.33f);
@@ -149,10 +149,10 @@ describe(@"all tests", ^{
     describe(@"encryption tests", ^{
         
         it(@"can not encrypt with one password and decrypt the valid object with another", ^{
-            [Owl putWithKey:key andValue:@"someval"];
-            expect([Owl getWithKey:key]).equal(@"someval");
+            [Owl putObject:@"someval" withKey:key];
+            expect([Owl getObjectWithKey:key]).equal(@"someval");
             [Owl setPassword:@"aanotherPassword"];
-            expect([Owl getWithKey:key]).notTo.equal(@"someval");
+            expect([Owl getObjectWithKey:key]).notTo.equal(@"someval");
         });
         
     });

@@ -33,17 +33,17 @@ pod 'Owl'
 
 #### Save
 ```objective-c
-[Owl putWithKey:@"key" andValue:object];
+[Owl putObject:object withKey:@"key"];
 ```
 
 #### Get
 ```objective-c
-T * object = [Owl getWithKey:@"key"];
+T * object = [Owl getObjectWithKey:@"key"];
 ```
 
 #### Remove
 ```objective-c
-[Owl removeWithKey:@"key"]
+[Owl removeObjectWithKey:@"key"]
 ```
 
 #### Contains
@@ -54,19 +54,19 @@ BOOL ret = [Owl containsKey:@"key"];
 ##### More samples for save
 
 ```objective-c
-[Owl putWithKey:@"a" andValue:[NSArray arrayWithObjects:object1, object2,...]]; //save array
-[Owl putWithKey:@"b" andValue:@"Hello"]; //save string
-[Owl putWithKey:@"c" andValue:[NSNumber numberWithInt:1]]; // save number
-[Owl putWithKey:@"d" andValue:[[Foo alloc] init]]; // save an object
+[Owl putObject:[NSArray arrayWithObjects:object1, object2,...] withKey:@"a"]; //save array
+[Owl putObject:@"Hello" withKey:@"b"]; //save string
+[Owl putObject:[NSNumber numberWithInt:1] withKey:@"c"]; //save number
+[Owl putObject:[[Foo alloc] init] withKey:@"d"]; //save an object
 ```
 
 ##### More samples for get
 
 ```objective-c
-NSArray * value = [Owl getWithKey:@"a"]; //load array
-NSString * value = [Owl getWithKey:@"b"]; //load string
-NSNumber * value = [Owl getWithKey:@"c"]; //load number
-Foo * value = [Owl getWithKey:@"d"]; //load an object
+NSArray * value = [Owl getObjectWithKey:@"a"]; //load array
+NSString * value = [Owl getObjectWithKey:@"b"]; //load string
+NSNumber * value = [Owl getObjectWithKey:@"c"]; //load number
+Foo * value = [Owl getObjectWithKey:@"d"]; //load an object
 ```
 ###Compatibility
 

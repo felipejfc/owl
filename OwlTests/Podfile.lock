@@ -1,7 +1,7 @@
 PODS:
   - Expecta (0.3.2)
   - GZIP (1.0.3)
-  - Owl (1.3):
+  - Owl (1.33):
     - GZIP
     - RNCryptor
     - SSKeychain
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
   GZIP: f27c434ffee5e9a9b34f4e9c19e91350fa8bbde1
-  Owl: eae7c0186dd1e5115f52b86d24a2b84e2a458352
+  Owl: 48930db80ff85ac313c1ab9cad2bbc8e3d48206f
   RNCryptor: 4f562062c39f288b99601674f2c50dd44b68d58a
   Specta: 698a58ffa5ec948327d3b92eab50ca58d7f4fbe8
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9

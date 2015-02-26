@@ -8,7 +8,7 @@
 
 #import "OwlSec.h"
 
-@implementation OwlSec
+@implementation OWLSec
 
 + (NSString *)generatePassword
 {
@@ -20,7 +20,7 @@
 - (NSString *) getPassword{
     NSString * password = [SSKeychain passwordForService:@"owlService" account:@"p"];
     if(password == nil){
-        password = [OwlSec generatePassword];
+        password = [OWLSec generatePassword];
         [self persistPassword:password];
     }
     return password;

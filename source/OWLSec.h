@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SSKeychain.h"
 
-@interface OwlSec : NSObject
+@interface OWLSec : NSObject
 
 - (NSString *) getPassword;
 - (void) persistPassword :(NSString *) password;

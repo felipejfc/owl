@@ -7,10 +7,10 @@
 
 @interface Owl : NSObject
 
-+(void) putWithKey :(NSString *) key andValue:(id) value;
-+(id) getWithKey :(NSString *) key;
++(void) putObject :(NSObject *) object withKey:(NSString *) key;
++(id) getObjectWithKey :(NSString *) key;
 +(void) setPassword :(NSString *) password;
-+(void) removeWithKey :(NSString *) key;
++(void) removeObjectWithKey :(NSString *) key;
 +(bool) containsKey :(NSString *) key;
 
 @end

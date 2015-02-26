@@ -38,11 +38,11 @@
     
     [model setModel:model2];
     
-    [Owl putWithKey:@"safe" andValue:model];
+    [Owl putObject:model withKey:@"safe"];
 }
 
 - (IBAction)load:(id)sender {
-    TestModel * test = [Owl getWithKey:@"safe"];
+    TestModel * test = [Owl getObjectWithKey:@"safe"];
     [toLoadSafeTextField setText:[NSString stringWithFormat:@"%@",[test aSrt]]];
 }
 

@@ -5,16 +5,16 @@
 
 #import "OwlStorage.h"
 
-@implementation OwlStorage
+@implementation OWLStorage
 
-- (void) putWithKey :(NSString*) key value:(id)value{
-    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+- (void) putObject: (NSObject*) object withKey:(NSString*) key{
+    [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
 }
-- (id) getWithKey:(NSString *) key{
+- (id) getObjectWithKey:(NSString *) key{
     return [[NSUserDefaults standardUserDefaults] valueForKey:key];
 }
 
-- (void) removeWithKey :(NSString *) key{
+- (void) removeObjectWithKey :(NSString *) key{
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
 }
 
