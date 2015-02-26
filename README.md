@@ -1,7 +1,7 @@
 ![](http://img.shields.io/cocoapods/p/Owl.svg?style=flat)
 ![](http://img.shields.io/cocoapods/v/Owl.svg?style=flat)
 ![](http://img.shields.io/cocoapods/l/Owl.svg?style=flat)
-![](https://travis-ci.org/felipejfc/owl.svg?branch=master)
+[![](https://travis-ci.org/felipejfc/owl.svg?branch=master)](https://travis-ci.org/felipejfc/owl/builds)
 [![Join the chat at https://gitter.im/felipejfc/owl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/felipejfc/owl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 #Owl
@@ -68,7 +68,7 @@ NSNumber * value = [Owl getObjectWithKey:@"c"]; //load number
 Foo * value = [Owl getObjectWithKey:@"d"]; //load an object
 ```
 
-###About encryption
+###Encryption
 
 Owl uses AES encryption over the data to save it securely, all the security methods are written in
 pure C so that is it way harder to intercept them.
