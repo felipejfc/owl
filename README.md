@@ -71,7 +71,7 @@ Foo * value = [Owl getObjectWithKey:@"d"]; //load an object
 ###Encryption / Security
 
 Owl uses AES encryption over the data to save it securely, all the security methods are written in
-pure C so that it is way harder to intercept/hack them.
+pure C so that it is way harder to intercept/crack them.
 
 ###Compatibility
 
