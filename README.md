@@ -55,7 +55,7 @@ BOOL ret = [Owl containsKey:@"key"];
 [Owl putWithKey:@"a" andValue:[NSArray arrayWithObjects:object1, object2,...]]; //save array
 [Owl putWithKey:@"b" andValue:@"Hello"]; //save string
 [Owl putWithKey:@"c" andValue:[NSNumber numberWithInt:1]]; // save number
-[Owl putWithKey:@"d" andValue:[[TestModel alloc] init]]; // save an object
+[Owl putWithKey:@"d" andValue:[[Foo alloc] init]]; // save an object
 ```
 
 ##### More samples for get
