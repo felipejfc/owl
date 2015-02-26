@@ -68,10 +68,10 @@ NSNumber * value = [Owl getObjectWithKey:@"c"]; //load number
 Foo * value = [Owl getObjectWithKey:@"d"]; //load an object
 ```
 
-###Encryption
+###Encryption / Security
 
 Owl uses AES encryption over the data to save it securely, all the security methods are written in
-pure C so that is it way harder to intercept them.
+pure C so that it is way harder to intercept/hack them.
 
 ###Compatibility
 
