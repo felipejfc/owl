@@ -21,7 +21,6 @@ describe(@"all tests", ^{
     });
     
     beforeEach(^{
-        [Owl setPassword:[OwlTestsUtil randomStringWithLength:32]];
         [Owl removeObjectWithKey:key];
     });
     
@@ -145,18 +144,6 @@ describe(@"all tests", ^{
             expect([[m model] testBool]).equal(TRUE);
         });
     });
-    
-    describe(@"encryption tests", ^{
-        
-        it(@"can not encrypt with one password and decrypt the valid object with another", ^{
-            [Owl putObject:@"someval" withKey:key];
-            expect([Owl getObjectWithKey:key]).equal(@"someval");
-            [Owl setPassword:@"aanotherPassword"];
-            expect([Owl getObjectWithKey:key]).notTo.equal(@"someval");
-        });
-        
-    });
-
 });
 
 SpecEnd

@@ -13,7 +13,7 @@
 
 @implementation Owl
 
-NSString * cryptoKey;
+NSString * ck;
 OWLStorage * owlStorage;
 OWLEncryption * owlCrypto;
 OWLSec * owlSec;
@@ -27,7 +27,7 @@ OWLSec * owlSec;
             owlStorage = [[OWLStorage alloc] init];
             owlCrypto = [[OWLEncryption alloc] init];
             owlSec = [[OWLSec alloc] init];
-            cryptoKey = [owlSec getPassword];
+            ck = getPassword(owlSec);
         }
     });
 }
@@ -35,12 +35,12 @@ OWLSec * owlSec;
 +(void) putObject :(NSObject *) object withKey:(NSString *) key{
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:object];
     data = [data gzippedData];
-    NSData * encryptedData = [owlCrypto encryptData:data withPassword:cryptoKey];
+    NSData * encryptedData = encryptData(data, ck);
     [owlStorage putObject:encryptedData withKey:key];
 }
 
 +(id) getObjectWithKey :(NSString *) key{
-    NSData * data = [owlCrypto decryptData:[owlStorage getObjectWithKey:key] withPassword:cryptoKey];
+    NSData * data = decryptData([owlStorage getObjectWithKey:key], ck);
     data = [data gunzippedData];
     id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return obj;
@@ -52,15 +52,6 @@ OWLSec * owlSec;
 
 +(bool) containsKey :(NSString *) key{
     return [owlStorage containsKey:key];
-}
-
-+(void) setPassword :(NSString *) password{
-    unsigned long len = [password length];
-    if(len != 16 && len != 24 && len !=32){
-        NSLog(@"Owl: Password must have 16, 24 or 32 characters");
-        return;
-    }
-    cryptoKey = password;
 }
 
 @end

@@ -9,7 +9,7 @@
 
 @implementation OWLEncryption
 
-- (NSData *) encryptData :(NSData *) data withPassword:(NSString *) password{
+NSData * encryptData(NSData * data, NSString *password){
     NSError * error = nil;
     NSData *encryptedData = [RNEncryptor encryptData:data withSettings:kRNCryptorAES256Settings password:password error:&error];
     if(error){
@@ -18,7 +18,7 @@
     return encryptedData;
 }
 
-- (NSData *) decryptData :(NSData *) data withPassword:(NSString *) password{
+NSData * decryptData(NSData * data, NSString* password){
     NSError * error = nil;
     NSData* decryptedData = [RNDecryptor decryptData:data withPassword:password error:&error];
     if(error){

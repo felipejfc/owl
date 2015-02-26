@@ -9,7 +9,6 @@
 
 +(void) putObject :(NSObject *) object withKey:(NSString *) key;
 +(id) getObjectWithKey :(NSString *) key;
-+(void) setPassword :(NSString *) password;
 +(void) removeObjectWithKey :(NSString *) key;
 +(bool) containsKey :(NSString *) key;
 

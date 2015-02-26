@@ -1,32 +1,29 @@
-//
-//  OwlSec.m
-//  Pods
-//
-//  Created by Felipe Cavalcanti on 25/02/15.
-//
-//
+/*
+ Copyright (c) 2015 Felipe Cavalcanti
+ See the file LICENSE for copying permission.
+ */
 
 #import "OwlSec.h"
 
 @implementation OWLSec
 
-+ (NSString *)generatePassword
+NSString * generatePassword()
 {
     uint8_t rBytes[16];
     SecRandomCopyBytes(kSecRandomDefault, 16, rBytes);
     return [[NSString alloc] initWithBytes:rBytes length:16 encoding:NSASCIIStringEncoding];
 }
 
-- (NSString *) getPassword{
+NSString * getPassword(OWLSec * self){
     NSString * password = [SSKeychain passwordForService:@"owlService" account:@"p"];
     if(password == nil){
-        password = [OWLSec generatePassword];
-        [self persistPassword:password];
+        password = generatePassword();
+        persistPassword(password);
     }
     return password;
 }
 
-- (void) persistPassword :(NSString *) password{
+void persistPassword (NSString * password){
     [SSKeychain setPassword:password forService:@"owlService" account:@"p"];
 }
 

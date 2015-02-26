@@ -68,18 +68,17 @@ NSString * value = [Owl getObjectWithKey:@"b"]; //load string
 NSNumber * value = [Owl getObjectWithKey:@"c"]; //load number
 Foo * value = [Owl getObjectWithKey:@"d"]; //load an object
 ```
+
+###About encryption
+
+Owl uses AES encryption over the data to save it securely, all the security methods are written in
+pure C so that is it way harder to intercept them.
+
 ###Compatibility
 
 Owl can persist **everything that subclasses NSObject**, assuming that all the properties of
 this object also do or are primitives.
 You should only avoid using structs that are not already NSCoding-compliant via NSValue.
-
-###Changing the AES encryption/decryption key
-As I told, Owl uses AES encryption to securely keep data in NSUserDefaults, for doing so it uses a random generated key, you can change that key to one of your own by simply making this call:
-```objective-c
-[Owl setPassword:@"aaaasomePassword"];
-```
-Remember that, for AES encryption, key length must be 128, 192 or 256 bits long( 16, 24 or 32 chars)
 
 ###MIT License
 <pre>

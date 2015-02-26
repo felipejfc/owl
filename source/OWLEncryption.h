@@ -5,7 +5,7 @@
 
 @interface OWLEncryption : NSObject
 
-- (NSData *) encryptData :(NSData *) data withPassword:(NSString *) password;
-- (NSData *) decryptData :(NSData *) data withPassword:(NSString *) password;
+NSData * encryptData(NSData * data, NSString *password);
+NSData * decryptData(NSData * data, NSString* password);
 
 @end
