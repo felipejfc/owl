@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Owl"
-  s.version      = "1.31"
+  s.version      = "1.32"
   s.summary      = "Secure Simple Key-Value Storage for iOS"
   s.license      = "MIT"
   s.author             = { "Felipe Cavalcanti" => "fjfcavalcanti@gmail.com" }
