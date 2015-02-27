@@ -7,7 +7,7 @@
 @implementation OWLSec
 
 //generatePassword
-NSData * jfainfleaslfkje()
+NSData * owlGeneratePassword()
 {
     uint8_t rBytes[16];
     SecRandomCopyBytes(kSecRandomDefault, 16, rBytes);
@@ -15,25 +15,25 @@ NSData * jfainfleaslfkje()
 }
 
 //getPassword
-NSData * fjekljflksdn(OWLSec * self){
-    NSData * password = fetchPasswordFromKeyChain();
+NSData * owlGetPassword(OWLSec * self){
+    NSData * password = owlFetchPasswordFromKeyChain();
     if(password == nil){
-        password = generatePassword();
-        persistPassword(password);
+        password = owlGeneratePassword();
+        owlPersistPassword(password);
     }
     return password;
 }
 
 //persistPassword
-void jfewjflkje (NSData * password){
-    savePasswordToKeyChain(password);
+void owlPersistPassword (NSData * password){
+    owlSavePasswordToKeyChain(password);
 }
 
 //savePasswordToKeyChain
 BOOL jhfiuasdhoafih(NSData* password) {
     OSStatus status = -1001;
 
-    deletePasswordFromKeyChain();
+    owlDeletePasswordFromKeyChain();
     
     NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"owlService", kSecAttrService, @"p", kSecAttrAccount, password, kSecValueData , nil];
     [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];

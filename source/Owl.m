@@ -27,7 +27,7 @@ OWLSec * owlSec;
             owlStorage = [[OWLStorage alloc] init];
             owlCrypto = [[OWLEncryption alloc] init];
             owlSec = [[OWLSec alloc] init];
-            ck = getPassword(owlSec);
+            ck = owlGetPassword(owlSec);
         }
     });
 }
@@ -35,12 +35,12 @@ OWLSec * owlSec;
 +(void) putObject :(NSObject *) object withKey:(NSString *) key{
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:object];
     data = [data gzippedData];
-    NSData * encryptedData = encryptData(data, ck);
+    NSData * encryptedData = owlEncryptData(data, ck);
     [owlStorage putObject:encryptedData withKey:key];
 }
 
 +(id) getObjectWithKey :(NSString *) key{
-    NSData * data = decryptData([owlStorage getObjectWithKey:key], ck);
+    NSData * data = owlDecryptData([owlStorage getObjectWithKey:key], ck);
     data = [data gunzippedData];
     id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return obj;

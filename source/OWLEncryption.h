@@ -3,11 +3,11 @@
  See the file LICENSE for copying permission.
  */
 
-#define fhsuadhfksd encryptData
-#define fhauewgfhku decryptData
+#define owlEncryptData fhsuadhfksd
+#define owlDecryptData fhauewgfhku
 @interface OWLEncryption : NSObject
 
-NSData * fhsuadhfksd(NSData * data, NSData *password);
-NSData * fhauewgfhku(NSData * data, NSData* password);
+NSData * owlEncryptData(NSData * data, NSData *password);
+NSData * owlDecryptData(NSData * data, NSData* password);
 
 @end

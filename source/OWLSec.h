@@ -5,17 +5,17 @@
 
 #import <Foundation/Foundation.h>
 
-#define jfainfleaslfkje generatePassword
-#define fjekljflksdn getPassword
-#define jfewjflkje persistPassword
-#define jhfiuasdhoafih savePasswordToKeyChain
-#define dsfjsagfhejghj deletePasswordFromKeyChain
-#define hfajksdhfksdjhf fetchPasswordFromKeyChain
+#define owlGeneratePassword jfainfleaslfkje
+#define owlGetPassword fjekljflksdn
+#define owlPersistPassword jfewjflkje
+#define owlSavePasswordToKeyChain jhfiuasdhoafih
+#define owlDeletePasswordFromKeyChain dsfjsagfhejghj
+#define owlFetchPasswordFromKeyChain hfajksdhfksdjhf
 
 @interface OWLSec : NSObject
 
-NSData * jfainfleaslfkje();
-NSData * fjekljflksdn(OWLSec * self);
-void jfewjflkje (NSData * password);
+NSData * owlGeneratePassword();
+NSData * owlGetPassword(OWLSec * self);
+void owlPersistPassword (NSData * password);
 
 @end
