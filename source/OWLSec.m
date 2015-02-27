@@ -6,7 +6,6 @@
 #import "OwlSec.h"
 @implementation OWLSec
 
-//generatePassword
 NSData * owlGeneratePassword()
 {
     uint8_t rBytes[16];
@@ -14,7 +13,6 @@ NSData * owlGeneratePassword()
     return [NSData dataWithBytes:rBytes length:16];
 }
 
-//getPassword
 NSData * owlGetPassword(OWLSec * self){
     NSData * password = owlFetchPasswordFromKeyChain();
     if(password == nil){
@@ -24,13 +22,11 @@ NSData * owlGetPassword(OWLSec * self){
     return password;
 }
 
-//persistPassword
 void owlPersistPassword (NSData * password){
     owlSavePasswordToKeyChain(password);
 }
 
-//savePasswordToKeyChain
-BOOL jhfiuasdhoafih(NSData* password) {
+BOOL owlSavePasswordToKeyChain(NSData* password) {
     OSStatus status = -1001;
 
     owlDeletePasswordFromKeyChain();
@@ -43,8 +39,7 @@ BOOL jhfiuasdhoafih(NSData* password) {
     return (status == errSecSuccess);
 }
 
-//deletePasswordFromKeyChain
-BOOL dsfjsagfhejghj() {
+BOOL owlDeletePasswordFromKeyChain() {
     OSStatus status = -1001;
     
     NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"owlService", kSecAttrService, @"p", kSecAttrAccount, nil];
@@ -64,8 +59,7 @@ BOOL dsfjsagfhejghj() {
     return (status == errSecSuccess);
 }
 
-//fetchPasswordFromKeyChain
-NSData* hfajksdhfksdjhf() {
+NSData* owlFetchPasswordFromKeyChain() {
     OSStatus status = -1001;
     
     CFTypeRef result = NULL;
